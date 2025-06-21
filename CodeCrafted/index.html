@@ -21,9 +21,42 @@
       <h1 class="header__title">CodeCrafted</h1>
       <nav class="header__nav">
         <a href="#slide" class="nav__link" id="homeLink">Trang chủ</a>
-        <a href="#courses" class="nav__link">Khoá học</a>
-        <a href="#about-us" class="nav__link">Giới thiệu</a>
-        <a href="#contact-form" class="nav__link">Liên hệ</a>
+
+        <ul class="nav__list">
+          <li class="menu-courses dropdown-wrapper">
+            <a href="#" class="nav__link">Khoá học</a>
+            <ul class="dropdown">
+              <li class="dropdown-item"><a href="#">Lập Trình Web</a></li>
+              <li class="dropdown-item"><a href="#">Phân Tích Dữ Liệu</a></li>
+              <li class="dropdown-item"><a href="#">Thiết Kế UI/UX</a></li>
+              <li class="dropdown-item"><a href="#">JS Căn Bản</a></li>
+              <li class="dropdown-item"><a href="#">Python 101</a></li>
+              <li class="dropdown-item"><a href="#">Tư Duy Lập Trình</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-intro">
+            <a href="#" class="nav__link">Giới thiệu</a>
+            <ul class="dropdown">
+              <li class="dropdown-item"><a href="#">Sứ mệnh & Giá trị</a></li>
+              <li class="dropdown-item"><a href="#">Đội ngũ giảng viên</a></li>
+              <li class="dropdown-item">
+                <a href="#">Học viên tiêu biểu</a>
+              </li>
+              <li class="dropdown-item"><a href="#">Blog công nghệ</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-contact">
+            <a href="#" class="nav__link">Hỗ trợ</a>
+            <ul class="dropdown">
+              <li class="dropdown-item"><a href="#">Gửi phản hồi</a></li>
+              <li class="dropdown-item"><a href="#">Hỏi đáp</a></li>
+              <li class="dropdown-item"><a href="#">Trung tâm trợ giúp</a></li>
+              <li class="dropdown-item"><a href="#">Fanpage Facebook</a></li>
+            </ul>
+          </li>
+        </ul>
         <button id="authBtn" class="btn btn--login">Đăng nhập</button>
       </nav>
     </header>
@@ -104,7 +137,9 @@
           <div class="course" data-course="web">
             <h4 class="course__title">Lập trình Web</h4>
             <p class="course__desc">
-              Học HTML, CSS, JavaScript từ cơ bản đến nâng cao.
+              🚀 Từ kiến thức nền tảng đến xây dựng website chuyên nghiệp với
+              HTML, CSS, JavaScript. Tạo ra những giao diện responsive, tối ưu
+              trải nghiệm người dùng, sẵn sàng cho dự án thực tế.
             </p>
           </div>
 
@@ -112,13 +147,17 @@
           <div class="course" data-course="data">
             <h4 class="course__title">Phân tích dữ liệu</h4>
             <p class="course__desc">
-              Sử dụng Python và Excel để xử lý dữ liệu hiệu quả.
+              📊 Nắm vững công cụ như Python, Excel, Pandas, Power BI để thu
+              thập, xử lý và trực quan hóa dữ liệu. Biến con số thành chiến
+              lược, từ dữ liệu thành giá trị thực tiễn.
             </p>
           </div>
           <div class="course" data-course="uiux">
             <h4 class="course__title">Thiết kế UI/UX</h4>
             <p class="course__desc">
-              Học cách tạo giao diện người dùng chuyên nghiệp.
+              🎨 Học cách thiết kế giao diện thu hút, dễ dùng và thân thiện. Kết
+              hợp tư duy trải nghiệm người dùng với công cụ mạnh mẽ như Figma,
+              Adobe XD, đưa ý tưởng thành sản phẩm số hoàn chỉnh.
             </p>
           </div>
         </div>

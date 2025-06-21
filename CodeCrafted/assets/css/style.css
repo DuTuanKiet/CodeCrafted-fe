@@ -11,10 +11,23 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #1e2a33; /* xanh đen nhạt mờ */
+  background: linear-gradient(to bottom, #eaf4ff, #3a506b, #1e2a33, #0d1b2a);
   color: #f1f1f1;
   line-height: 1.6;
   padding-top: 60px;
+}
+
+/* Hiệu ứng chuyển động nhẹ nền (subtle animated gradient) */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 a {
@@ -32,24 +45,37 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(30, 42, 51, 0.4); /* Mờ hơn */
-  backdrop-filter: blur(20px); /* Làm mờ nhiều hơn */
+  background: rgba(
+    30,
+    42,
+    51,
+    0.4
+  ); /* Nền có alpha mờ để thấy được hiệu ứng blur */
+  backdrop-filter: blur(20px); /* Làm mờ nền phía sau */
   -webkit-backdrop-filter: blur(20px); /* Hỗ trợ Safari */
-  padding: 1.5rem 6rem;
+  padding: 1.5rem 6rem; /* Padding đẹp cho desktop */
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Đổ bóng tạo chiều sâu */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.052); /* Tạo đường line mờ bên dưới */
+}
+
+/* Responsive tốt hơn với padding nhỏ lại ở mobile */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+  }
 }
 
 .header__title {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 800;
   color: #00bfa6;
   letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* tăng độ nổi bật khi nền mờ */
+  /* Tỏa bóng đen rõ nét xung quanh chữ */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.44);
 }
 
 .header__nav {
@@ -58,6 +84,83 @@ section {
   align-items: center;
 }
 
+/* Item khi hover vào tiêu đề Header */
+.nav__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  position: relative;
+}
+
+.nav__list li {
+  position: relative;
+  list-style: none;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  display: inline-block;
+  position: relative;
+  z-index: 101;
+}
+
+/* Dropdown chung */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #fff;
+  padding: 1.5rem 2rem;
+  min-width: 400px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 1.2rem 2rem;
+  z-index: 100;
+  margin-top: 5px;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Hover để hiện dropdown */
+.nav__list li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown item */
+.dropdown-item {
+  margin: 0;
+  text-align: left;
+  min-width: 180px;
+}
+
+.dropdown-item a {
+  display: block;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #1e2a33;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 0.4rem 0;
+}
+
+.dropdown-item a:hover {
+  color: #007bff;
+  transform: translateX(4px);
+}
+
+/* Các tiêu đề ở Header */
 .nav__link {
   font-weight: 600;
   padding: 0.6rem;
@@ -65,7 +168,8 @@ section {
   color: #f1f1f1;
   position: relative;
   transition: color 0.3s ease;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); /* dễ đọc hơn */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
 .nav__link::after {
@@ -105,6 +209,7 @@ section {
   height: 55vh;
   overflow: hidden;
   z-index: 1;
+  margin-top: 1rem;
 }
 
 /* Thay đổi theo mobile */
@@ -224,10 +329,12 @@ s .slideshow__slide:first-child {
   display: inline-block;
   background: #00bfa6;
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 0.75rem 2rem;
   border-radius: 30px;
   transition: all 0.3s ease;
   font-weight: 600;
+  font-size: 1.05rem;
 }
 
 .btn:hover {
@@ -260,6 +367,10 @@ s .slideshow__slide:first-child {
   font-size: 1.3rem;
   color: #00bfa6;
   margin-bottom: 0.5rem;
+}
+
+.course__desc {
+  text-align: justify;
 }
 
 /* ==== About, Contact ==== */
