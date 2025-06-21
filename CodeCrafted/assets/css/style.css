@@ -108,11 +108,34 @@ section {
   z-index: 1;
 }
 
+/* Thay đổi theo mobile */
+@media (max-width: 768px) {
+  .slideshow {
+    aspect-ratio: 16 / 10;
+  }
+
+  .intro {
+    padding: 4rem 1rem;
+  }
+
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+}
+
 .slideshow__slide {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: none;
+}
+
+.slideshow__slide.active {
+  display: block;
 }
 
 .slideshow__slide:first-child {

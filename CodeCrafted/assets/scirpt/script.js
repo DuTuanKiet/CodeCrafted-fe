@@ -353,7 +353,7 @@ const dots = document.querySelectorAll(".dot");
 // Hàm hiển thị slide theo chỉ số
 function showSlide(n) {
   slides.forEach((slide, i) => {
-    slide.style.display = i === n ? "block" : "none";
+    slide.classList.remove("active");
   });
 
   if (dots.length) {
@@ -361,6 +361,7 @@ function showSlide(n) {
     if (dots[n]) dots[n].classList.add("active");
   }
 
+  slides[n].classList.add("active");
   slideIndex = n;
 }
 
