@@ -347,8 +347,8 @@ toggleToLogin.addEventListener("click", (e) => {
 
 /* Slideshow */
 let slideIndex = 0;
-let slides = document.querySelectorAll(".slideshow__slide");
-let dots = document.querySelectorAll(".slideshow__dot");
+const slides = document.querySelectorAll(".slideshow__slide");
+const dots = document.querySelectorAll(".dot");
 
 // Hàm hiển thị slide theo chỉ số
 function showSlide(n) {
