@@ -8,47 +8,69 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <!-- Phần đầu trang -->
-    <header id="mainHeader">
-      <h1>CodeCrafted</h1>
-      <nav>
-        <a href="#home">Trang chủ</a>
-        <a href="#courses">Khoá học</a>
-        <a href="#about-us">Giới thiệu</a>
-        <a href="#contact-form">Liên hệ</a>
-        <button id="authBtn" class="btn">Đăng nhập / Đăng ký</button>
+    <!-- Header -->
+    <header class="header" id="mainHeader">
+      <h1 class="header__title">CodeCrafted</h1>
+      <nav class="header__nav">
+        <a href="#slide" class="nav__link" id="homeLink">Trang chủ</a>
+        <a href="#courses" class="nav__link">Khoá học</a>
+        <a href="#about-us" class="nav__link">Giới thiệu</a>
+        <a href="#contact-form" class="nav__link">Liên hệ</a>
+        <button id="authBtn" class="btn btn--auth">Đăng nhập</button>
       </nav>
     </header>
 
-    <!-- Ảnh chuyển sau 4s -->
-    <div class="slideshow-container">
+    <!-- Slideshow -->
+    <div class="slideshow" id="slide">
       <!-- test video đầu hẹ hẹ hẹ -->
       <video
-        src="/CodeCrafted/image/1a.mp4"
-        class="slide"
+        src="/CodeCrafted/assets/image/slide-show-1.mp4"
+        class="slideshow__slide"
         muted
         autoplay
         playsinline
       ></video>
-      <img src="/CodeCrafted/image/2a.jpeg" class="slide" />
-      <img src="/CodeCrafted/image/3a.webp" class="slide" />
+      <img
+        src="/CodeCrafted/assets/image/slide-show-2.jpeg"
+        class="slideshow__slide"
+      />
+      <img
+        src="/CodeCrafted/assets/image/slide-show-3.webp"
+        class="slideshow__slide"
+      />
 
-      <!-- Nút Prev / Next -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <!-- Nút điều hướng slideshow -->
+      <a
+        class="slideshow__control slideshow__control--prev"
+        onclick="plusSlides(-1)"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      <a
+        class="slideshow__control slideshow__control--next"
+        onclick="plusSlides(1)"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </a>
 
-      <!-- Các nút điều hướng -->
-      <div class="dots-container">
-        <span class="dot active-dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+      <!-- Các nút tròn chuyển slide -->
+      <div class="slideshow__dots">
+        <span class="slideshow__dot active"></span>
+        <span class="slideshow__dot"></span>
+        <span class="slideshow__dot"></span>
       </div>
     </div>
 
     <main>
+      <!-- Nút quay lên đầu trang -->
       <div
         id="backToTop"
         class="back-to-top"
@@ -66,146 +88,176 @@
         </svg>
       </div>
 
-      <!-- Modal đăng nhập/đăng ký -->
-      <div
-        class="modal-overlay"
-        id="authModal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        aria-hidden="true"
-        style="display: none"
-      >
-        <div class="modal" role="document">
-          <button class="modal-close-btn" id="closeAuthModal" aria-label="Đóng">
-            &times;
-          </button>
-
-          <h4 id="modal-title">Đăng nhập</h4>
-
-          <!-- Form đăng nhập -->
-          <form id="loginForm" class="auth-form">
-            <label for="login-username">Tên đăng nhập:</label>
-            <input type="text" id="login-username" name="username" required />
-
-            <label for="login-password">Mật khẩu:</label>
-            <input
-              type="password"
-              id="login-password"
-              name="password"
-              required
-            />
-
-            <button type="submit" class="btn">Đăng nhập</button>
-          </form>
-
-          <!-- Form đăng ký -->
-          <form id="registerForm" class="auth-form" style="display: none">
-            <label for="register-username">Tên đăng ký:</label>
-            <input
-              type="text"
-              id="register-username"
-              name="username"
-              required
-            />
-
-            <label for="register-email">Email:</label>
-            <input type="email" id="register-email" name="email" required />
-
-            <label for="register-password">Mật khẩu:</label>
-            <input
-              type="password"
-              id="register-password"
-              name="password"
-              required
-            />
-
-            <button type="submit" class="btn">Đăng ký</button>
-          </form>
-
-          <!-- Nút chuyển đổi -->
-          <p id="toggleAuth">
-            Chưa có tài khoản?
-            <a href="#" id="showRegister">Đăng ký ngay</a>
-            <br />
-            Đã có tài khoản?
-            <a href="#" id="showLogin" style="display: none">Đăng nhập</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- Phần giới thiệu đầu trang -->
-      <section class="intro-section" id="home">
-        <div>
-          <h2>Chào mừng đến với CodeCraft</h2>
-          <p>
-            Nơi bạn có thể học mọi lúc, mọi nơi và chinh phục tri thức theo cách
-            của riêng mình!
+      <!-- Giới thiệu  -->
+      <section id="home" class="intro">
+        <div class="intro__content">
+          <h2 class="intro__title">Chào mừng đến với CodeCraft</h2>
+          <p class="intro__desc">
+            <strong>
+              Nơi bạn có thể học mọi lúc, mọi nơi và chinh phục tri thức theo
+              cách của riêng mình!
+            </strong>
           </p>
 
           <a href="#courses" class="btn">Khám phá khoá học</a>
         </div>
       </section>
 
-      <!-- Danh sách khóa học phổ biến -->
-      <section id="courses" class="section-course fade-in">
-        <h3 class="section-course">Khoá học phổ biến</h3>
-        <div class="course-list">
+      <!-- Danh sách khóa học -->
+      <section id="courses" class="courses section--fade-in">
+        <h3 class="section__title">Khoá học phổ biến</h3>
+        <p class="about__desc">
+          <strong>
+            Học đúng, học chất – Bắt đầu hành trình chinh phục tương lai!
+          </strong>
+        </p>
+        <div class="courses__list">
           <!-- Item 1 -->
-          <div class="course-item" data-course="web">
-            <h4 class="course-title">Lập trình Web</h4>
-            <p class="course-desc">
+          <div class="course" data-course="web">
+            <h4 class="course__title">Lập trình Web</h4>
+            <p class="course__desc">
               Học HTML, CSS, JavaScript từ cơ bản đến nâng cao.
             </p>
           </div>
+
           <!-- Item 2 -->
-          <div class="course-item" data-course="data">
-            <h4 class="course-title">Phân tích dữ liệu</h4>
-            <p class="course-desc">
+          <div class="course" data-course="data">
+            <h4 class="course__title">Phân tích dữ liệu</h4>
+            <p class="course__desc">
               Sử dụng Python và Excel để xử lý dữ liệu hiệu quả.
             </p>
           </div>
-          <!-- Item 3 -->
-          <div class="course-item" data-course="uiux">
-            <h4 class="course-title">Thiết kế UI/UX</h4>
-            <p class="course-desc">
+          <div class="course" data-course="uiux">
+            <h4 class="course__title">Thiết kế UI/UX</h4>
+            <p class="course__desc">
               Học cách tạo giao diện người dùng chuyên nghiệp.
             </p>
           </div>
         </div>
-      </section>
 
-      <!-- Phần giới thiệu về chúng tôi -->
-      <section id="about-us" class="fade-in section-container">
-        <div class="section-header">
-          <h3>Về chúng tôi</h3>
-        </div>
-        <div class="section-content about description">
-          <p style="text-align: center; max-width: 700px; margin: auto">
-            Chúng tôi cung cấp nền tảng học tập trực tuyến hiện đại, giúp bạn dễ
-            dàng tiếp cận kiến thức chất lượng từ bất cứ đâu.
-          </p>
+        <div id="courseIntro" style="display: none">
+          <div id="courseIntroContent"></div>
+          <button id="closeCourseIntro">Đóng</button>
         </div>
       </section>
 
-      <!-- Phần liên hệ -->
-      <section id="contact-form" class="fade-in section-container">
-        <div class="section-header">
-          <h3>Liên hệ</h3>
-        </div>
-        <form class="contact-form">
-          <input type="text" placeholder="Tên của bạn" required />
-          <input type="email" placeholder="Email của bạn" required />
-          <textarea placeholder="Tin nhắn của bạn" rows="5"></textarea>
-          <button type="submit">Gửi</button>
+      <!-- Về chúng tôi -->
+      <section id="about-us" class="about section--fade-in">
+        <h3 class="section__title">Về chúng tôi</h3>
+        <p class="about__desc">
+          Chúng tôi cung cấp nền tảng học tập trực tuyến hiện đại, giúp bạn dễ
+          dàng tiếp cận kiến thức chất lượng từ bất cứ đâu.
+        </p>
+      </section>
+
+      <!-- Liên hệ -->
+      <section id="contact-form" class="contact section--fade-in">
+        <h3 class="section__title">Liên hệ</h3>
+        <form class="contact__form">
+          <input
+            type="text"
+            placeholder="Tên của bạn"
+            required
+            class="form__input"
+          />
+          <input
+            type="email"
+            placeholder="Email của bạn"
+            required
+            class="form__input"
+          />
+          <textarea
+            placeholder="Tin nhắn của bạn"
+            rows="5"
+            class="form__textarea"
+          ></textarea>
+          <button type="submit" class="btn btn--submit">Gửi</button>
         </form>
       </section>
     </main>
 
-    <!-- Phần chân trang -->
-    <footer id="main-footer" class="footer">
-      <p>BY Du Tuan Kiet</p>
+    <!-- Chân trang -->
+    <footer class="footer">
+      <p class="footer__credit">BY Du Tuan Kiet</p>
     </footer>
+
+    <!-- Modal đăng nhập/đăng ký -->
+    <div id="authModal" class="modal-overlay" style="display: none">
+      <div class="modal">
+        <button id="closeAuthModal" class="modal__close" aria-label="Đóng">
+          &times;
+        </button>
+
+        <h4 class="modal__title" id="modalTitle">Đăng nhập</h4>
+
+        <!-- Form đăng nhập -->
+        <form id="loginForm" class="auth-form">
+          <label for="login-username">Tên đăng nhập:</label>
+          <input
+            type="text"
+            id="login-username"
+            class="form__input"
+            placeholder="Tên đăng nhập"
+            required
+          />
+
+          <label for="login-password">Mật khẩu:</label>
+          <input
+            type="password"
+            id="login-password"
+            class="form__input"
+            placeholder="Nhập mật khẩu"
+            required
+          />
+
+          <button type="submit" class="btn btn--auth">Đăng nhập</button>
+        </form>
+
+        <!-- Form đăng ký -->
+        <form id="registerForm" class="auth-form" style="display: none">
+          <label for="register-username">Tên đăng ký:</label>
+          <input
+            type="text"
+            id="register-username"
+            class="form__input"
+            placeholder="Tên đăng ký"
+            required
+          />
+
+          <label for="register-email">Email:</label>
+          <input
+            type="email"
+            id="register-email"
+            class="form__input"
+            placeholder="Nhập email"
+            required
+          />
+
+          <label for="register-password">Mật khẩu:</label>
+          <input
+            type="password"
+            id="register-password"
+            class="form__input"
+            placeholder="Nhập mật khẩu"
+            required
+          />
+
+          <button type="submit" class="btn btn--register">Đăng ký</button>
+        </form>
+
+        <!-- Chuyển đổi giữa đăng nhập/đăng ký -->
+        <p class="auth-form__toggle">
+          <span id="toggleToRegister">
+            Chưa có tài khoản?
+            <a href="#">Đăng ký ngay</a>
+          </span>
+          <span id="toggleToLogin" style="display: none">
+            Đã có tài khoản?
+            <a href="#">Đăng nhập</a>
+          </span>
+        </p>
+      </div>
+    </div>
 
     <!-- Modal Popup khoá học -->
     <div
@@ -217,15 +269,17 @@
       aria-hidden="true"
       style="display: none"
     >
-      <div class="modal" role="document">
-        <button class="modal-close-btn" id="modal-close-btn" aria-label="Đóng">
+      <div class="modal modal--course-detail" role="document">
+        <button class="modal__close-btn" id="modal-close-btn" aria-label="Đóng">
           &times;
         </button>
-        <h4 id="modal-title">Tiêu đề khoá học</h4>
-        <p id="modal-content">Nội dung chi tiết khoá học sẽ hiển thị ở đây.</p>
+        <h4 class="modal__title" id="modal-title">Tiêu đề khoá học</h4>
+        <p class="modal__body" id="modal-content">
+          Nội dung chi tiết khoá học sẽ hiển thị ở đây.
+        </p>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/CodeCrafted/assets/scirpt/script.js"></script>
   </body>
 </html>
