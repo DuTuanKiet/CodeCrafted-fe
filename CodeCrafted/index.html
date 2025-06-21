@@ -24,7 +24,7 @@
         <a href="#courses" class="nav__link">Khoá học</a>
         <a href="#about-us" class="nav__link">Giới thiệu</a>
         <a href="#contact-form" class="nav__link">Liên hệ</a>
-        <button id="authBtn" class="btn btn--auth">Đăng nhập</button>
+        <button id="authBtn" class="btn btn--login">Đăng nhập</button>
       </nav>
     </header>
 
@@ -32,26 +32,26 @@
     <div class="slideshow" id="slide">
       <!-- test video đầu hẹ hẹ hẹ -->
       <video
-        src="./assets/image/slide-show-1.mp4"
-        class="slideshow__slide"
+        src="/CodeCrafted/assets/image/slide-show-1.mp4"
+        class="slideshow__slide active"
         muted
         autoplay
         playsinline
       ></video>
-      <img src="./assets/image/slide-show-2.jpeg" class="slideshow__slide" />
-      <img src="./assets/image/slide-show-3.webp" class="slideshow__slide" />
+      <img
+        src="/CodeCrafted/assets/image/slide-show-2.jpeg"
+        class="slideshow__slide"
+      />
+      <img
+        src="/CodeCrafted/assets/image/slide-show-3.webp"
+        class="slideshow__slide"
+      />
 
       <!-- Nút điều hướng slideshow -->
-      <a
-        class="slideshow__control slideshow__control--prev"
-        onclick="plusSlides(-1)"
-      >
+      <a class="slideshow__control slideshow__control--prev">
         <i class="fas fa-chevron-left"></i>
       </a>
-      <a
-        class="slideshow__control slideshow__control--next"
-        onclick="plusSlides(1)"
-      >
+      <a class="slideshow__control slideshow__control--next">
         <i class="fas fa-chevron-right"></i>
       </a>
 
@@ -204,7 +204,9 @@
             required
           />
 
-          <button type="submit" class="btn btn--auth">Đăng nhập</button>
+          <button type="submit" class="btn btn--auth" id="loginSubmitBtn">
+            Đăng nhập
+          </button>
         </form>
 
         <!-- Form đăng ký -->
@@ -274,6 +276,6 @@
       </div>
     </div>
 
-    <script src="/CodeCrafted/assets/scirpt/script.js"></script>
+    <script src="./assets/script/script.js"></script>
   </body>
 </html>

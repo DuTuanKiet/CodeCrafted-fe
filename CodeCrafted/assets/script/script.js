@@ -130,7 +130,7 @@ function setupSmoothScroll(navSelector, headerId) {
   });
 }
 
-// ==== Auth Modal Logic ====
+// ==== Auth Modal ====
 function setupAuthModal(
   authBtnId,
   modalId,
@@ -149,6 +149,20 @@ function setupAuthModal(
   const modalTitle = document.getElementById(titleId);
   const showRegister = document.getElementById(showRegisterId);
   const showLogin = document.getElementById(showLoginId);
+
+  if (
+    !authBtn ||
+    !modal ||
+    !closeBtn ||
+    !loginForm ||
+    !registerForm ||
+    !modalTitle ||
+    !showRegister ||
+    !showLogin
+  ) {
+    console.warn("Một hoặc nhiều phần tử trong modal không tìm thấy.");
+    return;
+  }
 
   authBtn.addEventListener("click", () => {
     modalTitle.textContent = "Đăng nhập";
@@ -191,26 +205,6 @@ function setupAuthModal(
   });
 }
 
-// ==== Back To Top ====
-const backToTopBtn = document.getElementById("backToTop");
-
-// Hiện nút khi cuộn xuống 200px
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    backToTopBtn.classList.add("show");
-  } else {
-    backToTopBtn.classList.remove("show");
-  }
-});
-
-// Khi click, cuộn về đầu
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
-
 // ==== Home Scroll ====
 function setupHomeLink(linkId) {
   const link = document.getElementById(linkId);
@@ -235,18 +229,37 @@ function setupLegacySlideShow(slideClass) {
   window.onload = () => show(index);
 }
 
+// ==== Back to Top Setup ====
+function setupBackToTop(btnId) {
+  const backToTopBtn = document.getElementById(btnId);
+  if (!backToTopBtn) return;
+
+  // Hiện nút khi cuộn xuống 200px
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 // ==== Init ====
 window.addEventListener("DOMContentLoaded", () => {
   const slideshow = new Slideshow(".slideshow__slide", ".slideshow__dot");
   document
     .querySelector(".slideshow__control--prev")
-    .addEventListener("click", () => {
+    ?.addEventListener("click", () => {
       slideshow.prevSlide();
       slideshow.resetInterval();
     });
   document
     .querySelector(".slideshow__control--next")
-    .addEventListener("click", () => {
+    ?.addEventListener("click", () => {
       slideshow.nextSlide();
       slideshow.resetInterval();
     });
@@ -277,126 +290,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
   setupScrollEffects("backToTop", "mainHeader");
   setupSmoothScroll("nav", "mainHeader");
+
+  // Chỉ gọi setupAuthModal nếu đủ các phần tử cần thiết
   setupAuthModal(
     "authBtn",
     "authModal",
     "closeAuthModal",
     "loginForm",
     "registerForm",
-    "modal-title",
-    "showRegister",
-    "showLogin"
+    "modalTitle",
+    "toggleToRegister",
+    "toggleToLogin"
   );
-  setupBackToTop("backToTop");
+
   setupHomeLink("homeLink");
   setupLegacySlideShow("mySlides");
-});
-
-// ==== Auth Modal loginForm ====
-const authBtn = document.getElementById("authBtn");
-const authModal = document.getElementById("authModal");
-const closeAuthModal = document.getElementById("closeAuthModal");
-
-const loginForm = document.getElementById("loginForm");
-const registerForm = document.getElementById("registerForm");
-const toggleToRegister = document.getElementById("toggleToRegister");
-const toggleToLogin = document.getElementById("toggleToLogin");
-const modalTitle = document.getElementById("modalTitle");
-
-// Hiển thị modal
-authBtn.addEventListener("click", () => {
-  authModal.style.display = "flex";
-  loginForm.style.display = "block";
-  registerForm.style.display = "none";
-  modalTitle.textContent = "Đăng nhập";
-  toggleToRegister.style.display = "inline";
-  toggleToLogin.style.display = "none";
-});
-
-// Đóng modal
-closeAuthModal.addEventListener("click", () => {
-  authModal.style.display = "none";
-});
-
-// Đóng khi bấm ra ngoài modal
-window.addEventListener("click", (e) => {
-  if (e.target === authModal) {
-    authModal.style.display = "none";
-  }
-});
-
-// Chuyển sang đăng ký
-toggleToRegister.addEventListener("click", (e) => {
-  e.preventDefault();
-  loginForm.style.display = "none";
-  registerForm.style.display = "block";
-  modalTitle.textContent = "Đăng ký";
-  toggleToRegister.style.display = "none";
-  toggleToLogin.style.display = "inline";
-});
-
-// Chuyển sang đăng nhập
-toggleToLogin.addEventListener("click", (e) => {
-  e.preventDefault();
-  loginForm.style.display = "block";
-  registerForm.style.display = "none";
-  modalTitle.textContent = "Đăng nhập";
-  toggleToRegister.style.display = "inline";
-  toggleToLogin.style.display = "none";
-});
-
-/* Slideshow */
-let slideIndex = 0;
-const slides = document.querySelectorAll(".slideshow__slide");
-const dots = document.querySelectorAll(".dot");
-
-// Hàm hiển thị slide theo chỉ số
-function showSlide(n) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-  });
-
-  if (dots.length) {
-    dots.forEach((dot) => dot.classList.remove("active"));
-    if (dots[n]) dots[n].classList.add("active");
-  }
-
-  slides[n].classList.add("active");
-  slideIndex = n;
-}
-
-// Chuyển slide thủ công
-function plusSlides(n) {
-  slideIndex = (slideIndex + n + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-// Tự động chuyển slide sau mỗi 4s
-function autoSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
-
-// Khởi tạo
-document.addEventListener("DOMContentLoaded", () => {
-  showSlide(slideIndex); // Hiển thị slide đầu tiên
-  setInterval(autoSlide, 4000); // 4 giây chuyển 1 lần
-});
-
-// Hiệu ứng khi scroll của header
-window.addEventListener("scroll", () => {
-  const header = document.getElementById("mainHeader");
-
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-
-  document.querySelectorAll(".fade-in").forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add("visible");
-    }
-  });
+  setupBackToTop("backToTop");
 });
