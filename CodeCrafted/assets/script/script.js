@@ -214,6 +214,31 @@ function setupHomeLink(linkId) {
   });
 }
 
+// ==== Header Scroll ====
+let lastScrollTop = 0;
+let ticking = false;
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      if (currentScroll > lastScrollTop && currentScroll > 100) {
+        // Cuộn xuống
+        header.classList.add("hidden");
+      } else {
+        // Cuộn lên
+        header.classList.remove("hidden");
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
+
 // ==== Secondary Slide Show (legacy support) ====
 function setupLegacySlideShow(slideClass) {
   let index = 1;
