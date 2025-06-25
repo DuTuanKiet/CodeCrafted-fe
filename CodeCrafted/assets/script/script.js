@@ -35,11 +35,50 @@ class Slideshow {
       this.dots[index].classList.add("active-dot");
     }
 
-    const currentVideo = this.slides[index].querySelector("video");
-    if (currentVideo) {
-      currentVideo.currentTime = 0;
-      currentVideo.play();
+    // đang lỗi----------------------------------------
+    const currentSlide = this.slides[index];
+    if (!currentSlide) return;
+
+    let video = null;
+
+    // Nếu slide là chính thẻ <video>
+    if (currentSlide.tagName === "VIDEO") {
+      video = currentSlide;
+    } else {
+      // Nếu slide là <div> chứa <video>
+      video = currentSlide.querySelector("video");
     }
+
+    // Kiểm tra video tồn tại và là thẻ VIDEO
+    if (video && video.tagName === "VIDEO") {
+      console.log("Video element:", video);
+      console.log("Tag name:", video.tagName);
+
+      // Đảm bảo video được reset và phát lại
+      video.currentTime = 0;
+
+      // Nếu đã load đủ để phát
+      if (video.readyState >= 3) {
+        video.play().catch((err) => {
+          console.warn("Không phát được video:", err);
+        });
+      } else {
+        // Đợi cho đến khi video có thể phát
+        video.addEventListener(
+          "canplay",
+          () => {
+            video.play().catch((err) => {
+              console.warn("Không phát được video (canplay):", err);
+            });
+          },
+          { once: true }
+        ); // chỉ nghe 1 lần
+      }
+    } else {
+      console.warn("Không tìm thấy hoặc phần tử không phải VIDEO:", video);
+    }
+
+    //--------------------------------------------------
 
     this.currentSlide = index;
   }
@@ -332,3 +371,72 @@ window.addEventListener("DOMContentLoaded", () => {
   setupLegacySlideShow("mySlides");
   setupBackToTop("backToTop");
 });
+
+const slides = document.querySelectorAll(".slideshow__slide");
+const dots = document.querySelectorAll(".slideshow__dot");
+let currentIndex = 0;
+let interval;
+
+// Hiển thị slide theo chỉ số
+(function () {
+  const slides = document.querySelectorAll(".slideshow__dot");
+  const dots = document.querySelectorAll(".slideshow__dot");
+  let currentIndex = 0;
+  let interval = null;
+
+  // Kiểm tra nếu không đủ phần tử thì dừng
+  if (slides.length === 0 || dots.length === 0) {
+    console.warn("Slideshow: Không tìm thấy slide hoặc dot.", {
+      // Tìm ra đang thiếu phần tử nào (phòng thủ defensive coding)
+      slideCount: slides.length,
+      dotCount: dots.length,
+    });
+    return;
+  }
+
+  function showSlide(index) {
+    if (!slides[index] || !dots[index]) return;
+
+    // Hiển thị slide
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+
+    // Cập nhật trạng thái dots
+    dots.forEach((dot, i) => {
+      dot.classList.remove("active");
+      const fill = dot.querySelector(".slide-fill");
+      if (fill) fill.style.width = "0%";
+    });
+
+    dots[index].classList.add("active");
+    const activeFill = dots[index].querySelector(".slide-fill");
+    if (activeFill) activeFill.style.width = "100%";
+  }
+
+  function startAutoSlide() {
+    interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 4000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(interval);
+  }
+
+  function handleDotClick(index) {
+    stopAutoSlide();
+    currentIndex = index;
+    showSlide(currentIndex);
+    startAutoSlide();
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => handleDotClick(i));
+  });
+
+  // Khởi động
+  showSlide(currentIndex);
+  startAutoSlide();
+})();

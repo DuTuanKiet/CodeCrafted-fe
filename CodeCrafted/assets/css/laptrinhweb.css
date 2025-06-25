@@ -1,0 +1,150 @@
+/* ===== Layout cơ bản ===== */
+body {
+  min-height: 100vh;
+}
+
+/* ===== Slideshow Container ===== */
+.course-slideshow {
+  max-width: 900px;
+  margin: 130px auto 4rem;
+  background: #1e2a33;
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ===== Slide Item ===== */
+.course-slide {
+  display: none;
+  animation: fadeSlideIn 1s ease forwards;
+}
+
+.course-slide.active {
+  display: block;
+}
+
+/* ===== Slide Title ===== */
+.course-slide h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00bfa6;
+}
+
+/* ===== Slide Content Grid ===== */
+.slide-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeContentIn 1s ease forwards;
+}
+
+/* ===== Individual Slide Block ===== */
+.slide-block h3,
+.slide-block a {
+  color: #00bfa6;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.slide-block p,
+.slide-block a {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ccc;
+  text-align: justify;
+}
+
+/* ===== View Button ===== */
+.btn-view {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #00bfa6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.btn-view:hover {
+  transform: translateX(5px);
+  text-decoration: underline;
+}
+
+/* ==== Dots ==== */
+.slide-dot-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+.slide-dot {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #555;
+  overflow: hidden;
+}
+.slide-dot.active {
+  background-color: #00bfa6;
+}
+.slide-fill {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #00bfa6;
+  transition: width 6s linear;
+  border-radius: 50%;
+  z-index: 1;
+}
+.slide-dot.active .slide-fill {
+  width: 100%;
+}
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  background: transparent;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeContentIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
