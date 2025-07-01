@@ -352,20 +352,43 @@ s .slideshow__slide:first-child {
 
 /* ==== Button ==== */
 .btn {
+  position: relative;
+  overflow: hidden;
   display: inline-block;
-  background: #00bfa6;
-  color: #fff;
+  background: #475569;
+  color: #e2e8f0;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   padding: 0.75rem 2rem;
   border-radius: 30px;
   transition: all 0.3s ease;
   font-weight: 600;
   font-size: 1.05rem;
+  z-index: 0;
 }
 
 .btn:hover {
-  background: #009e8b;
-  transform: scale(1.05);
+  background: #0f172a;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f172a;
+  transform: scaleX(0.01);
+  transform-origin: left;
+  z-index: -1;
+  transition: transform 0.4s ease;
+  border-radius: 30px;
+}
+.btn:hover::after {
+  transform: scaleX(1);
 }
 
 /* ==== Course Section ==== */
@@ -480,11 +503,48 @@ s .slideshow__slide:first-child {
 
 /* ==== Footer ==== */
 .footer {
-  background: #1a242f;
+  background: #111827;
+  color: #d1d5db;
   text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #ccc;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  border-top: 1px solid #2d3748;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.footer__content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer__credit {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer__follow {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer__social-icon {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0.95);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer__social-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.4);
 }
 
 /* ==== Form đăng nhập đăng ký ẩn ==== */
