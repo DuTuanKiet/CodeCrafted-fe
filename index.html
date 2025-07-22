@@ -20,7 +20,9 @@
     <header class="header" id="mainHeader">
       <h1 class="header__title">CodeCrafted</h1>
       <nav class="header__nav">
-        <a href="#slide" class="nav__link" id="homeLink">Trang chủ</a>
+        <a href="./index.html#home" class="nav__link" id="homeLink">
+          Trang chủ
+        </a>
 
         <ul class="nav__list">
           <li class="menu-courses dropdown-wrapper">
@@ -74,7 +76,7 @@
         playsinline
         loop
       ></video>
-      <img src="./assets/image/slide-show-2.jpeg" class="slideshow__slide" />
+      <img src="./assets/image/slide-show-code.avif" class="slideshow__slide" />
       <img src="./assets/image/slide-show-3.webp" class="slideshow__slide" />
 
       <!-- Nút điều hướng slideshow -->
@@ -115,8 +117,8 @@
       <!-- Giới thiệu  -->
       <section id="home" class="intro">
         <div class="intro__content">
-          <h2 class="intro__title">Chào mừng đến với CodeCraft</h2>
-          <p class="intro__desc">
+          <h2 class="section__title">Chào mừng đến với CodeCraft</h2>
+          <p class="about__desc section__desc">
             <strong>
               Nơi bạn có thể học mọi lúc, mọi nơi và chinh phục tri thức theo
               cách của riêng mình!
@@ -175,8 +177,10 @@
       <section id="about-us" class="about section--fade-in">
         <h3 class="section__title">Về chúng tôi</h3>
         <p class="about__desc">
-          Chúng tôi cung cấp nền tảng học tập trực tuyến hiện đại, giúp bạn dễ
-          dàng tiếp cận kiến thức chất lượng từ bất cứ đâu.
+          <strong>
+            Chúng tôi cung cấp nền tảng học tập trực tuyến hiện đại, giúp bạn dễ
+            dàng tiếp cận kiến thức chất lượng từ bất cứ đâu.
+          </strong>
         </p>
       </section>
 
@@ -234,86 +238,6 @@
       </div>
     </footer>
 
-    <!-- Modal đăng nhập/đăng ký -->
-    <div id="authModal" class="modal-overlay" style="display: none">
-      <div class="modal">
-        <button id="closeAuthModal" class="modal__close" aria-label="Đóng">
-          &times;
-        </button>
-
-        <h4 class="modal__title" id="modalTitle">Đăng nhập</h4>
-
-        <!-- Form đăng nhập -->
-        <form id="loginForm" class="auth-form">
-          <label for="login-username">Tên đăng nhập:</label>
-          <input
-            type="text"
-            id="login-username"
-            class="form__input"
-            placeholder="Tên đăng nhập"
-            required
-          />
-
-          <label for="login-password">Mật khẩu:</label>
-          <input
-            type="password"
-            id="login-password"
-            class="form__input"
-            placeholder="Nhập mật khẩu"
-            required
-          />
-
-          <button type="submit" class="btn btn--auth" id="loginSubmitBtn">
-            Đăng nhập
-          </button>
-        </form>
-
-        <!-- Form đăng ký -->
-        <form id="registerForm" class="auth-form" style="display: none">
-          <label for="register-username">Tên đăng ký:</label>
-          <input
-            type="text"
-            id="register-username"
-            class="form__input"
-            placeholder="Tên đăng ký"
-            required
-          />
-
-          <label for="register-email">Email:</label>
-          <input
-            type="email"
-            id="register-email"
-            class="form__input"
-            placeholder="Nhập email"
-            required
-          />
-
-          <label for="register-password">Mật khẩu:</label>
-          <input
-            type="password"
-            id="register-password"
-            class="form__input"
-            placeholder="Nhập mật khẩu"
-            required
-          />
-
-          <button type="submit" class="btn btn--register">Đăng ký</button>
-        </form>
-
-        <!-- Chuyển đổi giữa đăng nhập/đăng ký -->
-        <p class="auth-form__toggle">
-          <span id="toggleToRegister">
-            Chưa có tài khoản?
-            <a href="#">Đăng ký ngay</a>
-          </span>
-          <span id="toggleToLogin" style="display: none">
-            Đã có tài khoản?
-            <a href="#">Đăng nhập</a>
-          </span>
-        </p>
-      </div>
-    </div>
-
     <!-- Modal Popup khoá học -->
     <div
       class="modal-overlay"
@@ -335,6 +259,7 @@
       </div>
     </div>
 
-    <script src="./assets/script/script.js"></script>
+    <script type="module" src="./assets/script/main.js" defer></script>
+    <div id="authContainer"></div>
   </body>
 </html>

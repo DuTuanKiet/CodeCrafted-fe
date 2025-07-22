@@ -12,7 +12,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/laptrinhweb.css" />
   </head>
@@ -21,7 +20,7 @@
     <header class="header" id="mainHeader">
       <h1 class="header__title">CodeCrafted</h1>
       <nav class="header__nav">
-        <a href="./index.html" class="nav__link" id="homeLink">Trang chủ</a>
+        <a href="index.html" class="nav__link" id="homeLink">Trang chủ</a>
         <ul class="nav__list">
           <li class="menu-courses dropdown-wrapper">
             <a href="#" class="nav__link">Khoá học</a>
@@ -56,87 +55,17 @@
         <button id="authBtn" class="btn btn--login">Đăng nhập</button>
       </nav>
     </header>
-
-    <!-- Modal đăng nhập/đăng ký -->
-    <div id="authModal" class="modal-overlay" style="display: none">
-      <div class="modal">
-        <button id="closeAuthModal" class="modal__close" aria-label="Đóng">
-          &times;
-        </button>
-        <h4 class="modal__title" id="modalTitle">Đăng nhập</h4>
-        <form id="loginForm" class="auth-form">
-          <label for="login-username">Tên đăng nhập:</label>
-          <input
-            type="text"
-            id="login-username"
-            class="form__input"
-            placeholder="Tên đăng nhập"
-            required
-          />
-          <label for="login-password">Mật khẩu:</label>
-          <input
-            type="password"
-            id="login-password"
-            class="form__input"
-            placeholder="Nhập mật khẩu"
-            required
-          />
-          <button type="submit" class="btn btn--auth" id="loginSubmitBtn">
-            Đăng nhập
-          </button>
-        </form>
-        <form id="registerForm" class="auth-form" style="display: none">
-          <label for="register-username">Tên đăng ký:</label>
-          <input
-            type="text"
-            id="register-username"
-            class="form__input"
-            placeholder="Tên đăng ký"
-            required
-          />
-          <label for="register-email">Email:</label>
-          <input
-            type="email"
-            id="register-email"
-            class="form__input"
-            placeholder="Nhập email"
-            required
-          />
-          <label for="register-password">Mật khẩu:</label>
-          <input
-            type="password"
-            id="register-password"
-            class="form__input"
-            placeholder="Nhập mật khẩu"
-            required
-          />
-          <button type="submit" class="btn btn--register">Đăng ký</button>
-        </form>
-        <p class="auth-form__toggle">
-          <span id="toggleToRegister">
-            Chưa có tài khoản?
-            <a href="#">Đăng ký ngay</a>
-          </span>
-          <span id="toggleToLogin" style="display: none">
-            Đã có tài khoản?
-            <a href="#">Đăng nhập</a>
-          </span>
-        </p>
-      </div>
-    </div>
-
-    <!-- Modal Popup khoá học -->
+    <!-- Modal Khoá học -->
     <div
       class="modal-overlay"
       id="modalOverlay"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
-      aria-hidden="true"
-      style="display: none"
+      hidden
     >
       <div class="modal modal--course-detail" role="document">
-        <button class="modal__close-btn" id="modal-close-btn" aria-label="Đóng">
+        <button id="modal-close-btn" class="modal__close-btn" aria-label="Đóng">
           &times;
         </button>
         <h4 class="modal__title" id="modal-title">Tiêu đề khoá học</h4>
@@ -146,9 +75,9 @@
       </div>
     </div>
 
-    <!-- Khóa học lập trình -->
-    <div class="course-slideshow">
-      <div class="course-slide active">
+    <!-- Slide khoá học -->
+    <section class="course-slideshow">
+      <div class="slideshow__slide active">
         <h2>Khoá học Lập trình Web</h2>
         <div class="slide-content">
           <div class="slide-block">
@@ -171,12 +100,14 @@
           </div>
           <div class="slide-block">
             <h3>Xem chi tiết</h3>
-            <a href="#" class="btn-view">&#10145; Vào trang khóa học</a>
+            <a href="#" class="btn-view" placeholder="Xem chi tiết">
+              &#10145; Vào trang khóa học
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="course-slide">
+      <div class="slideshow__slide">
         <h2>Thiết kế Giao diện UI/UX</h2>
         <div class="slide-content">
           <div class="slide-block">
@@ -196,12 +127,14 @@
           </div>
           <div class="slide-block">
             <h3>Xem chi tiết</h3>
-            <a href="#" class="btn-view">&#10145; Vào trang khóa học</a>
+            <a href="#" class="btn-view" placeholder="Xem chi tiết">
+              &#10145; Vào trang khóa học
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="course-slide">
+      <div class="slideshow__slide">
         <h2>Responsive Web Design</h2>
         <div class="slide-content">
           <div class="slide-block">
@@ -223,30 +156,28 @@
           </div>
           <div class="slide-block">
             <h3>Xem chi tiết</h3>
-            <a href="#" class="btn-view">&#10145; Vào trang khóa học</a>
+            <a href="#" class="btn-view" placeholder="Xem chi tiết">
+              &#10145; Vào trang khóa học
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Nút dot thanh chuyển động -->
+    <!-- Nút chuyển slide -->
     <div class="slide-dot-wrapper">
-      <button class="slide-dot active" data-slide="0">
+      <button class="slideshow__dot active" data-slide="0">
         <span class="slide-fill"></span>
       </button>
-      <button class="slide-dot" data-slide="1">
+      <button class="slideshow__dot" data-slide="1">
         <span class="slide-fill"></span>
       </button>
-      <button class="slide-dot" data-slide="2">
+      <button class="slideshow__dot" data-slide="2">
         <span class="slide-fill"></span>
       </button>
     </div>
 
-    <!-- Chân trang -->
-    <footer class="footer">
-      <p class="footer__credit">BY Du Tuan Kiet</p>
-    </footer>
-
-    <script src="./assets/script/script.js"></script>
+    <script type="module" src="./assets/script/main.js" defer></script>
+    <div id="authContainer"></div>
   </body>
 </html>

@@ -10,11 +10,19 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  background: linear-gradient(to bottom, #eaf4ff, #3a506b, #1e2a33, #0d1b2a);
-  color: #f1f1f1;
-  line-height: 1.6;
-  padding-top: 60px;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    to bottom,
+    #f4fbff,
+    #a8cbed,
+    #3a506b,
+    #1e2a33,
+    #0d1b2a
+  );
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Arial", sans-serif;
 }
 
 /* Hiệu ứng chuyển động nhẹ nền (subtle animated gradient) */
@@ -45,21 +53,16 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(
-    30,
-    42,
-    51,
-    0.4
-  ); /* Nền có alpha mờ để thấy được hiệu ứng blur */
-  backdrop-filter: blur(20px); /* Làm mờ nền phía sau */
-  -webkit-backdrop-filter: blur(20px); /* Hỗ trợ Safari */
-  padding: 1.5rem 6rem; /* Padding đẹp cho desktop */
+  background: rgba(18, 32, 47, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.5rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Đổ bóng tạo chiều sâu */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.052); /* Tạo đường line mờ bên dưới */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: transform 0.4s ease-in-out, opacity 0.3s ease;
   will-change: transform;
 }
@@ -80,7 +83,7 @@ section {
 .header__title {
   font-size: 3rem;
   font-weight: 800;
-  color: #00bfa6;
+  color: #355c7d;
   letter-spacing: 1px;
   /* Tỏa bóng đen rõ nét xung quanh chữ */
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.44);
@@ -106,14 +109,17 @@ section {
 }
 
 .nav__link {
-  color: #fff;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: #f8f8f8;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   padding: 0.8rem 1rem;
-  display: inline-block;
   position: relative;
   z-index: 101;
+  height: 100%;
 }
-
 /* Dropdown chung */
 .dropdown {
   position: absolute;
@@ -330,24 +336,21 @@ s .slideshow__slide:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #253745;
   padding: 6rem 2rem;
   text-align: center;
   margin-top: -50px;
 }
 
-.intro__title {
+.section__title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #00bfa6;
-}
+  color: #ccdbe7;
 
-.intro__desc {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-inline: auto;
-  color: #dce3e8;
+  /* Làm mượt chuyển màu khi scroll */
+  transition: color 0.3s ease-in-out;
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: color 0.3s ease;
 }
 
 /* ==== Button ==== */
@@ -414,7 +417,7 @@ s .slideshow__slide:first-child {
 
 .course__title {
   font-size: 1.3rem;
-  color: #00bfa6;
+  color: #ccdbe7;
   margin-bottom: 0.5rem;
 }
 
@@ -424,10 +427,18 @@ s .slideshow__slide:first-child {
 
 /* ==== About, Contact ==== */
 .section__title {
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
   color: #00bfa6;
   margin-bottom: 2rem;
+}
+
+.about__desc.section__desc {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+  color: #dce3e8;
 }
 
 .about__desc {
@@ -435,7 +446,7 @@ s .slideshow__slide:first-child {
   text-align: center;
   margin: auto;
   font-size: 1.1rem;
-  color: #cfdbe4;
+  color: #1e2a33;
 }
 
 /* ==== Contact Form ==== */
@@ -458,17 +469,28 @@ s .slideshow__slide:first-child {
 }
 
 .btn--submit {
-  background: #00bfa6;
+  background: linear-gradient(135deg, #326879, #114354a1); /* Xanh trầm lạnh */
   color: #fff;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
   cursor: pointer;
-  transition: 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(15, 78, 68, 0.395);
+  transition: all 0.3s ease;
+  transform: translateY(0);
 }
 
 .btn--submit:hover {
-  background: #009e8b;
+  background: linear-gradient(135deg, #21373dfb, #144a44);
+  box-shadow: 0 6px 16px rgba(31, 69, 63, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn--submit:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ==== Back to Top Button ==== */
@@ -478,7 +500,7 @@ s .slideshow__slide:first-child {
   bottom: 2rem;
   width: 48px;
   height: 48px;
-  background: #00bfa6;
+  background: #7a99a257;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -492,7 +514,7 @@ s .slideshow__slide:first-child {
 }
 
 .back-to-top:hover {
-  background: #009e8b;
+  background: #26413e;
   transform: scale(1.1) rotate(-5deg);
 }
 
@@ -657,4 +679,19 @@ s .slideshow__slide:first-child {
   color: #00bfa6;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* Ẩn ban đầu và hiệu ứng hiện ra */
+.section--fade-in {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out,
+    filter 0.8s ease-out;
+  will-change: opacity, transform, filter;
+}
+
+.section--fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
