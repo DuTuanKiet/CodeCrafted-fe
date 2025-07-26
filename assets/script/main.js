@@ -11,6 +11,7 @@ import { setupFadeInSection, setupFadeInTeacher } from "./dom/fadeIn.js";
 import { setupBackToTop } from "./dom/scroll.js";
 import { setupHeaderScroll } from "./dom/headerScroll.js";
 import { setupHomeLink } from "./dom/homeLink.js";
+import { setupIntroObserver } from "./dom/introObserver.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSlideshowControls();
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupInternalSmoothScroll("Gioithieu.html");
   setupBackToTop("backToTop");
   setupHomeLink("homeLink");
+  setupIntroObserver();
   setupHeaderScroll();
 
   if (
