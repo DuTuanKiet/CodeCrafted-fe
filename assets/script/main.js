@@ -2,20 +2,27 @@
 import { setupAuthModal } from "./dom/authModal.js";
 import { setupSlideshowControls } from "./dom/slideshow.js";
 import { setupScrollEffects } from "./dom/scroll.js";
-import { setupSmoothScroll } from "./dom/smoothScroll.js";
+import {
+  setupSmoothScroll,
+  setupInternalSmoothScroll,
+} from "./dom/smoothScroll.js";
 import { setupCourseIntro } from "./dom/courseIntro.js";
-import { setupFadeInSection } from "./dom/fadeIn.js";
+import { setupFadeInSection, setupFadeInTeacher } from "./dom/fadeIn.js";
 import { setupBackToTop } from "./dom/scroll.js";
 import { setupHeaderScroll } from "./dom/headerScroll.js";
+import { setupHomeLink } from "./dom/homeLink.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSlideshowControls();
   setupFadeInSection("#courses");
   setupFadeInSection("#about-us");
   setupFadeInSection("#contact-form");
+  setupFadeInTeacher(".teacher");
   setupScrollEffects("backToTop", "mainHeader");
   setupSmoothScroll("nav", "mainHeader");
+  setupInternalSmoothScroll("Gioithieu.html");
   setupBackToTop("backToTop");
+  setupHomeLink("homeLink");
   setupHeaderScroll();
 
   if (

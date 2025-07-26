@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu - CodeCrafted</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/Gioithieu.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="mainHeader">
+      <h1 class="header__title">CodeCrafted</h1>
+      <nav class="header__nav">
+        <a href="./index.html#home" class="nav__link" id="homeLink">
+          Trang chủ
+        </a>
+
+        <ul class="nav__list">
+          <li class="menu-courses dropdown-wrapper">
+            <a href="#" class="nav__link">Khoá học</a>
+            <ul class="dropdown">
+              <li class="dropdown-item">
+                <a href="./khoahoc_laptrinhweb.html">Lập Trình Web</a>
+              </li>
+              <li class="dropdown-item"><a href="#">Phân Tích Dữ Liệu</a></li>
+              <li class="dropdown-item"><a href="#">Thiết Kế UI/UX</a></li>
+              <li class="dropdown-item"><a href="#">JS Căn Bản</a></li>
+              <li class="dropdown-item"><a href="#">Python 101</a></li>
+              <li class="dropdown-item"><a href="#">Tư Duy Lập Trình</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-intro">
+            <a href="#" class="nav__link">Giới thiệu</a>
+            <ul class="dropdown">
+              <li class="dropdown-item">
+                <a href="./Gioithieu.html#section-mission">Sứ mệnh & Giá trị</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="./Gioithieu.html#section-teachers">
+                  Đội ngũ giảng viên
+                </a>
+              </li>
+              <li class="dropdown-item">
+                <a href="./Gioithieu.html#section-students">
+                  Học viên tiêu biểu
+                </a>
+              </li>
+              <li class="dropdown-item">
+                <a href="./Gioithieu.html#section-blog">Blog công nghệ</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-contact">
+            <a href="#" class="nav__link">Hỗ trợ</a>
+            <ul class="dropdown">
+              <li class="dropdown-item"><a href="#">Gửi phản hồi</a></li>
+              <li class="dropdown-item"><a href="#">Hỏi đáp</a></li>
+              <li class="dropdown-item"><a href="#">Trung tâm trợ giúp</a></li>
+              <li class="dropdown-item"><a href="#">Fanpage Facebook</a></li>
+            </ul>
+          </li>
+        </ul>
+        <button id="authBtn" class="btn btn--login">Đăng nhập</button>
+        <div id="authContainer" style="display: inline-block"></div>
+      </nav>
+    </header>
+
+    <main class="site-main">
+      <!-- Nút quay lên đầu trang -->
+      <div
+        id="backToTop"
+        class="back-to-top"
+        role="button"
+        aria-label="Quay lên đầu trang"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="white"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 4l-8 8h6v8h4v-8h6z" />
+        </svg>
+      </div>
+
+      <!-- Giới thiệu chung -->
+      <section class="section section-intro">
+        <div class="intro-image">
+          <img
+            src="./assets/image/about-header.png"
+            alt="Hình minh họa e-learning"
+          />
+        </div>
+        <div class="intro-content">
+          <h2>
+            <span class="highlight-text">CodeCrafted</span>
+            – Hệ thống quản lý khóa học trực tuyến
+          </h2>
+          <p class="intro-lead">
+            CodeCrafted là nền tảng học trực tuyến hiện đại giúp kết nối tri
+            thức đến cộng đồng một cách hiệu quả và bền vững.
+          </p>
+          <ul class="intro-list">
+            <li>Hơn 4 năm phát triển nền tảng học lập trình chuyên sâu.</li>
+            <li>
+              Xuất phát từ nhóm sinh viên đam mê công nghệ và hiện đã phục vụ
+              hơn 10.000 học viên.
+            </li>
+            <li>
+              Tích hợp livestream, chấm bài tự động, và mentor hỗ trợ cá nhân.
+            </li>
+            <li>Theo dõi tiến độ học tập và cấp chứng nhận trực tuyến.</li>
+            <li>
+              Không ngừng cải tiến UI/UX và cập nhật công nghệ mới như AI,
+              DevOps, Web3.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Sứ mệnh & Giá trị -->
+      <section class="section section-mission" id="section-mission">
+        <h2>Sứ mệnh & Giá trị</h2>
+        <p>
+          CodeCrafted ra đời với sứ mệnh lan tỏa tri thức công nghệ đến cộng
+          đồng một cách dễ tiếp cận, hiệu quả và bền vững. Chúng tôi tin rằng
+          giáo dục không chỉ là chia sẻ kiến thức, mà còn là khơi dậy đam mê
+          sáng tạo và xây dựng năng lực tự học.
+        </p>
+        <ul>
+          <li>
+            🌐 Mở rộng cơ hội học lập trình cho mọi đối tượng – bất kể độ tuổi,
+            ngành nghề hay điều kiện địa lý.
+          </li>
+          <li>
+            💡 Đề cao sự đổi mới và cập nhật công nghệ liên tục theo xu hướng
+            thực tế như AI, Web3, DevOps.
+          </li>
+          <li>
+            🤝 Tạo ra cộng đồng học tập tích cực, gắn kết giữa học viên và giảng
+            viên thông qua diễn đàn và mentor cá nhân.
+          </li>
+          <li>
+            📈 Đồng hành cùng người học từ cơ bản đến nâng cao, xây dựng lộ
+            trình nghề nghiệp rõ ràng.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Đội ngũ giảng viên -->
+      <section class="section section-teachers" id="section-teachers" s>
+        <h2>Đội ngũ giảng viên</h2>
+        <p>
+          Đội ngũ giảng viên tại CodeCrafted là các chuyên gia hàng đầu trong
+          lĩnh vực lập trình, thiết kế web và công nghệ phần mềm. Không chỉ có
+          chuyên môn sâu, họ còn sở hữu kỹ năng sư phạm và tinh thần tận tâm với
+          từng học viên. Mỗi khóa học đều được giám sát chất lượng nội dung và
+          đánh giá hiệu quả giảng dạy.
+        </p>
+        <div class="teacher-grid">
+          <div class="teacher">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png"
+              alt="GV 1"
+            />
+            <h4>Thầy Trần Văn An</h4>
+            <p>
+              Senior Backend Developer – 10 năm kinh nghiệm với Java, Spring
+              Boot. Tư duy hệ thống mạnh mẽ và phong cách giảng dạy thực tế.
+            </p>
+          </div>
+          <div class="teacher">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2922/2922656.png"
+              alt="GV 2"
+            />
+            <h4>Cô Lê Thảo Nhi</h4>
+            <p>
+              Fullstack Developer – Chuyên gia ReactJS & NodeJS. Hướng dẫn học
+              viên qua dự án thực tế, hỗ trợ mentor cá nhân 1:1.
+            </p>
+          </div>
+          <div class="teacher">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2922/2922512.png"
+              alt="GV 3"
+            />
+            <h4>Thầy Nguyễn Hữu Long</h4>
+            <p>
+              Chuyên gia UI/UX – Hướng dẫn hàng trăm học viên thiết kế giao diện
+              chuyên nghiệp theo chuẩn Material và Mobile First.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Học viên tiêu biểu -->
+      <section class="section section-students" id="section-students">
+        <h2>Học viên tiêu biểu</h2>
+        <p>
+          Hơn 10.000 học viên đã và đang học tập cùng CodeCrafted. Nhiều người
+          trong số họ đã trở thành lập trình viên chuyên nghiệp, giành học bổng
+          công nghệ hoặc khởi nghiệp thành công. Học viên không chỉ đạt kết quả
+          cao trong học tập mà còn góp phần lan tỏa giá trị tích cực đến cộng
+          đồng thông qua dự án mở, chia sẻ kiến thức và mentor lại cho người
+          mới.
+        </p>
+        <ul>
+          <li>
+            🎓 Nguyễn Minh Khoa – Sinh viên năm 3, đạt giải Nhất Hackathon khu
+            vực miền Nam 2025, hiện là Intern tại VNG.
+          </li>
+          <li>
+            🌟 Trần Thị Bảo Ngọc – Từng học khóa Web Cơ bản, hiện làm Frontend
+            Developer tại FPT Software, chuyên VueJS và Tailwind.
+          </li>
+          <li>
+            🚀 Lê Anh Tuấn – Tốt nghiệp khóa Spring Boot nâng cao, hiện là
+            Technical Lead tại startup công nghệ về tài chính.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Blog công nghệ -->
+      <section class="section section-blog" id="section-blog">
+        <h2>Blog công nghệ</h2>
+        <p>
+          Blog CodeCrafted cập nhật tin tức công nghệ, chia sẻ kiến thức lập
+          trình và định hướng nghề nghiệp cho lập trình viên tương lai. Mỗi
+          tuần, chúng tôi đăng bài viết được biên tập kỹ lưỡng bởi đội ngũ kỹ
+          thuật và cộng đồng học viên đóng góp. Nội dung luôn thực tế, dễ hiểu
+          và bám sát nhu cầu tuyển dụng thị trường.
+        </p>
+        <ul>
+          <li>
+            📚 Hướng dẫn kỹ thuật: HTML, CSS, JavaScript, Java, Python, Git,
+            API, CI/CD...
+          </li>
+          <li>
+            🧠 Kỹ năng mềm: Giao tiếp trong đội nhóm, tư duy phản biện, quản lý
+            thời gian, viết CV, phỏng vấn.
+          </li>
+          <li>
+            🔎 Phân tích xu hướng công nghệ và thị trường tuyển dụng IT: AI,
+            Remote Job, DevOps, Fullstack Developer.
+          </li>
+        </ul>
+        <p>
+          👉 Truy cập blog tại:
+          <a href="#">blog.codecrafted.vn</a>
+        </p>
+      </section>
+    </main>
+
+    <!-- Chân trang -->
+    <footer class="footer">
+      <div class="footer__content">
+        <p class="footer__credit">BY Du Tuan Kiet</p>
+        <p class="footer__follow">Follow us</p>
+        <div class="footer__socials">
+          <a
+            href="https://www.facebook.com/kiet.hi.980"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook"
+              class="footer__social-icon"
+            />
+          </a>
+          <a href="#" target="_blank" aria-label="Instagram">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              class="footer__social-icon"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="./assets/script/main.js" defer></script>
+    <div id="authContainer"></div>
+  </body>
+</html>

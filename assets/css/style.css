@@ -201,38 +201,40 @@ section {
   width: 100%;
 }
 
-.btn--auth {
-  background-color: #00bfa6;
-  color: white;
-  padding: 0.3rem 1rem;
+.btn--login {
+  background-color: transparent;
+  color: #f1f1f1;
+  padding: 0.4rem 1.2rem;
   border-radius: 999px;
-  border: none;
-  cursor: pointer;
+  border: 2px solid #00bfa6;
   font-weight: 600;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  transition: 0.3s ease;
-  margin-top: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.btn--auth:hover {
-  background-color: #009e8b;
-}
-
-.btn--register {
+.btn--login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
   background-color: #00bfa6;
-  color: white;
-  padding: 0.3rem 1rem;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  transition: 0.3s ease;
-  margin-top: 0.7rem;
+  z-index: -1;
+  transition: width 0.4s ease;
 }
 
-.btn--register:hover {
-  background-color: #009e8b;
+.btn--login:hover::before {
+  width: 100%;
+}
+
+.btn--login:hover {
+  color: #fff;
+  border-color: #00bfa6;
 }
 
 /* ==== Slideshow ==== */
