@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách Khóa học | CodeCrafted</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/Khoahoc.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <!-- Header -->
+    <header class="header" id="mainHeader">
+      <h1 class="header__title">CodeCrafted</h1>
+      <nav class="header__nav">
+        <a href="index.html#" class="nav__link" id="homeLink">Trang chủ</a>
+        <ul class="nav__list">
+          <li class="menu-courses dropdown-wrapper">
+            <a href="#" class="nav__link">Khoá học</a>
+            <ul class="dropdown">
+              <li class="dropdown-item"><a href="#">Lập Trình Web</a></li>
+              <li class="dropdown-item"><a href="#">Phân Tích Dữ Liệu</a></li>
+              <li class="dropdown-item"><a href="#">Thiết Kế UI/UX</a></li>
+              <li class="dropdown-item"><a href="#">JS Căn Bản</a></li>
+              <li class="dropdown-item"><a href="#">Python 101</a></li>
+              <li class="dropdown-item"><a href="#">Tư Duy Lập Trình</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-intro">
+            <a href="./Gioithieu.html" class="nav__link">Giới thiệu</a>
+          </li>
+
+          <li class="menu-contact">
+            <a href="#" class="nav__link">Hỗ trợ</a>
+            <ul class="dropdown">
+              <li class="dropdown-item"><a href="#">Gửi phản hồi</a></li>
+              <li class="dropdown-item"><a href="#">Hỏi đáp</a></li>
+              <li class="dropdown-item"><a href="#">Trung tâm trợ giúp</a></li>
+              <li class="dropdown-item"><a href="#">Fanpage Facebook</a></li>
+            </ul>
+          </li>
+        </ul>
+        <button id="authBtn" class="btn btn--login">Đăng nhập</button>
+      </nav>
+    </header>
+
+    <!-- Danh sách khóa học -->
+    <main class="course-grid">
+      <!-- 9 khóa học -->
+      <div class="course-card">
+        <img src="images/web-basic.jpg" alt="Lập trình Web cơ bản" />
+        <div class="course-card-content">
+          <h3>Lập trình Web cơ bản</h3>
+          <p>Nắm vững HTML, CSS và JavaScript để xây dựng website đầu tiên.</p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/frontend.jpg" alt="Frontend nâng cao" />
+        <div class="course-card-content">
+          <h3>Frontend nâng cao</h3>
+          <p>
+            Học cách sử dụng Webpack, Git, BEM và các kỹ thuật tổ chức code hiện
+            đại.
+          </p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/react.jpg" alt="ReactJS cơ bản" />
+        <div class="course-card-content">
+          <h3>ReactJS cơ bản</h3>
+          <p>
+            Tiếp cận thư viện frontend phổ biến nhất: JSX, Props, State,
+            Component.
+          </p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/backend-java.jpg" alt="Java Spring Boot" />
+        <div class="course-card-content">
+          <h3>Backend với Java Spring Boot</h3>
+          <p>
+            Xây dựng API mạnh mẽ, an toàn và có thể mở rộng với Spring
+            Framework.
+          </p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/nodejs.jpg" alt="NodeJS Express" />
+        <div class="course-card-content">
+          <h3>NodeJS Express</h3>
+          <p>
+            Lập trình backend hiện đại với JavaScript, REST API, MongoDB,
+            Express.
+          </p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/uiux.jpg" alt="Thiết kế UI/UX" />
+        <div class="course-card-content">
+          <h3>Thiết kế UI/UX hiện đại</h3>
+          <p>Figma, Wireframe, Prototype, màu sắc và trải nghiệm người dùng.</p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/responsive.jpg" alt="Responsive Web Design" />
+        <div class="course-card-content">
+          <h3>Responsive Web Design</h3>
+          <p>
+            Thiết kế website tương thích mọi thiết bị với Grid, Flexbox, Media
+            Queries.
+          </p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/git.jpg" alt="Git & GitHub" />
+        <div class="course-card-content">
+          <h3>Quản lý dự án với Git & GitHub</h3>
+          <p>
+            Thành thạo quy trình Git Flow, commit chuẩn, và làm việc nhóm hiệu
+            quả.
+          </p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="images/devops.jpg" alt="DevOps cơ bản" />
+        <div class="course-card-content">
+          <h3>DevOps cơ bản</h3>
+          <p>Hiểu CI/CD, Docker, Jenkins và triển khai ứng dụng hiện đại.</p>
+          <a href="#" class="btn-detail">Xem chi tiết</a>
+        </div>
+      </div>
+    </main>
+    <!-- Chân trang -->
+    <footer class="footer">
+      <div class="footer__content">
+        <p class="footer__credit">BY Du Tuan Kiet</p>
+        <p class="footer__follow">Follow us</p>
+        <div class="footer__socials">
+          <a
+            href="https://www.facebook.com/kiet.hi.980"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook"
+              class="footer__social-icon"
+            />
+          </a>
+          <a href="#" target="_blank" aria-label="Instagram">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              class="footer__social-icon"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="./assets/script/main.js" defer></script>
+    <div id="authContainer"></div>
+  </body>
+</html>
