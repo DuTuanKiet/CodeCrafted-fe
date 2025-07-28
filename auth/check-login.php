@@ -12,8 +12,7 @@ $username = trim($_POST["username"] ?? '');
 $password = $_POST["password"] ?? '';
 
 if (empty($username) || empty($password)) {
-    $_SESSION['login_error'] = "Thiếu tên đăng nhập hoặc mật khẩu.";
-    header("Location: authModal.html");
+    header("Location: ../index.html?login=fail");
     exit();
 }
 
@@ -21,7 +20,7 @@ if (empty($username) || empty($password)) {
 $sql_admin = "SELECT id, username, password FROM admins WHERE username = ?";
 $stmt_admin = $conn->prepare($sql_admin);
 if (!$stmt_admin) {
-    die("Lỗi prepare câu lệnh admin: " . $conn->error);
+    die("Lỗi prepare admin: " . $conn->error);
 }
 $stmt_admin->bind_param("s", $username);
 $stmt_admin->execute();
@@ -34,21 +33,19 @@ if ($result_admin && $result_admin->num_rows === 1) {
         $_SESSION['user_id'] = $admin['id'];
         $_SESSION['username'] = $admin['username'];
         $_SESSION['role'] = 'admin';
-
         header("Location: ../admin-index.html");
         exit();
     } else {
-        $_SESSION['login_error'] = "Mật khẩu không đúng.";
-        header("Location: authModal.html");
+        header("Location: ../index.html?login=fail");
         exit();
     }
 }
 
-// Kiểm tra tài khoản user
+// Kiểm tra user
 $sql_user = "SELECT id, username, password FROM users WHERE username = ? OR email = ?";
 $stmt_user = $conn->prepare($sql_user);
 if (!$stmt_user) {
-    die("Lỗi prepare câu lệnh user: " . $conn->error);
+    die("Lỗi prepare user: " . $conn->error);
 }
 $stmt_user->bind_param("ss", $username, $username);
 $stmt_user->execute();
@@ -61,17 +58,14 @@ if ($result_user && $result_user->num_rows === 1) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = 'user';
-
-        header("Location: index.html");
+        header("Location: ../index.html?login=success");
         exit();
     } else {
-        $_SESSION['login_error'] = "Mật khẩu không đúng.";
-        header("Location: authModal.html");
+        header("Location: ../index.html?login=fail");
         exit();
     }
 }
 
 // Không tìm thấy tài khoản
-$_SESSION['login_error'] = "Tên đăng nhập không tồn tại.";
-header("Location: authModal.html");
+header("Location: ../index.html?login=fail");
 exit();

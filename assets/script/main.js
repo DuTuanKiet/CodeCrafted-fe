@@ -1,5 +1,5 @@
 // main.js
-import { setupAuthModal } from "./dom/authModal.js";
+
 import { setupSlideshowControls } from "./dom/slideshow.js";
 import { setupScrollEffects } from "./dom/scroll.js";
 import {
@@ -13,8 +13,10 @@ import { setupHeaderScroll } from "./dom/headerScroll.js";
 import { setupHomeLink } from "./dom/homeLink.js";
 import { setupIntroObserver } from "./dom/introObserver.js";
 import { setupAdmin } from "./dom/admin.js";
+import { setupIncludeHTML } from "./dom/includeHTML.js";
+import { setupAuthModal } from "./dom/authModal.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   setupSlideshowControls();
   setupFadeInSection("#courses");
   setupFadeInSection("#about-us");
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupInternalSmoothScroll("Gioithieu.html");
   setupBackToTop("backToTop");
   setupHomeLink("homeLink");
+  await setupIncludeHTML();
   setupIntroObserver();
   setupHeaderScroll();
 
@@ -63,33 +66,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Chèn modal rồi setup
-  includeHTML("#authContainer", "./modal/authModal.html", () => {
-    setupAuthModal(
-      "authBtn",
-      "authModal",
-      "closeAuthModal",
-      "loginForm",
-      "registerForm",
-      "modalTitle",
-      "toggleToRegister",
-      "toggleToLogin"
-    );
+  setupAuthModal(
+    "authBtn",
+    "authModal",
+    "closeAuthModal",
+    "loginForm",
+    "registerForm",
+    "modalTitle",
+    "toggleToRegister",
+    "toggleToLogin"
+  );
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const loginStatus = urlParams.get("login");
+  const urlParams = new URLSearchParams(window.location.search);
+  const loginStatus = urlParams.get("login");
 
-    if (loginStatus === "fail") {
-      console.warn("⚠️ Đăng nhập thất bại");
-      alert("⚠️ Tên đăng nhập hoặc mật khẩu không đúng!");
-      // Mở modal đăng nhập luôn
-      const authBtn = document.getElementById("authBtn");
-      if (authBtn) authBtn.click();
-    }
+  if (loginStatus === "fail") {
+    console.warn("⚠️ Đăng nhập thất bại");
+    alert("⚠️ Tên đăng nhập hoặc mật khẩu không đúng!");
+    const authBtn = document.getElementById("authBtn");
+    if (authBtn) authBtn.click();
+  }
 
-    if (loginStatus === "success") {
-      console.log("✅ Đăng nhập thành công!");
-    }
-  });
+  if (loginStatus === "success") {
+    console.log("✅ Đăng nhập thành công!");
+  }
 });
 
 function includeHTML(selector, url, callback) {
