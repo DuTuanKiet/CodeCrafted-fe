@@ -12,6 +12,7 @@ import { setupBackToTop } from "./dom/scroll.js";
 import { setupHeaderScroll } from "./dom/headerScroll.js";
 import { setupHomeLink } from "./dom/homeLink.js";
 import { setupIntroObserver } from "./dom/introObserver.js";
+import { setupAdmin } from "./dom/admin.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSlideshowControls();
@@ -26,6 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
   setupHomeLink("homeLink");
   setupIntroObserver();
   setupHeaderScroll();
+
+  // Kiểm tra phần tử DOM rồi mới gọi setupAdmin
+  if (
+    document.getElementById("course-list") &&
+    document.getElementById("user-list")
+  ) {
+    setupAdmin();
+  }
 
   if (
     document.querySelector(".course") &&

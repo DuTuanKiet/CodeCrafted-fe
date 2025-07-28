@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trang Admin - Quản lý khóa học & người dùng</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/admin-index.css" />
+  </head>
+  <body>
+    <header>Trang Quản Trị - Admin Dashboard</header>
+
+    <div class="container">
+      <div class="tabs">
+        <div class="tab active" data-tab="courses">Quản lý Khóa học</div>
+        <div class="tab" data-tab="users">Quản lý Người dùng</div>
+      </div>
+
+      <!-- Khóa học -->
+      <section id="courses" class="tab-content active">
+        <button class="add-new" id="btn-add-course">+ Thêm Khóa học</button>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên khóa học</th>
+              <th>Mô tả</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="course-list">
+            <!-- Dữ liệu khóa học sẽ hiển thị ở đây -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Người dùng -->
+      <section id="users" class="tab-content" style="display: none">
+        <button class="add-new" id="btn-add-user">+ Thêm Người dùng</button>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên đăng nhập</th>
+              <th>Email</th>
+              <th>Quyền</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="user-list">
+            <!-- Dữ liệu người dùng sẽ hiển thị ở đây -->
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- Modal Thêm/Sửa khóa học -->
+    <div class="modal-bg" id="modal-course">
+      <div class="modal">
+        <div class="modal-close" id="close-course-modal">&times;</div>
+        <h3 id="course-modal-title">Thêm khóa học</h3>
+        <form id="course-form">
+          <input type="hidden" id="course-id" />
+          <label for="course-name">Tên khóa học</label>
+          <input type="text" id="course-name" required />
+
+          <label for="course-desc">Mô tả</label>
+          <textarea id="course-desc" required></textarea>
+
+          <div class="modal-buttons">
+            <button type="button" id="cancel-course-btn">Hủy</button>
+            <button type="submit" id="save-course-btn">Lưu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Thêm/Sửa người dùng -->
+    <div class="modal-bg" id="modal-user">
+      <div class="modal">
+        <div class="modal-close" id="close-user-modal">&times;</div>
+        <h3 id="user-modal-title">Thêm người dùng</h3>
+        <form id="user-form">
+          <input type="hidden" id="user-id" />
+          <label for="username">Tên đăng nhập</label>
+          <input type="text" id="username" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+
+          <label for="role">Quyền</label>
+          <select id="role" required>
+            <option value="admin">Admin</option>
+            <option value="user">Người dùng</option>
+          </select>
+
+          <div class="modal-buttons">
+            <button type="button" id="cancel-user-btn">Hủy</button>
+            <button type="submit" id="save-user-btn">Lưu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="./assets/script/main.js"></script>
+  </body>
+</html>
