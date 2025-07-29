@@ -47,50 +47,82 @@ section {
   padding: 6rem 2rem;
 }
 
-/* HEADER - Cải tiến */
-header {
+/* HEADER - Cải tiến (Đã cập nhật theo Gioithieu.css) */
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(44, 62, 80, 0.95); /* Giữ tone xanh đen */
+  background: rgba(18, 32, 47, 0.95); /* Main background */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 6rem; /* Wider padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f1f1f1;
-  font-size: 1.5rem;
-  font-weight: 700;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 999;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease;
+  will-change: transform;
 }
 
-/* HEADER TITLE */
-header .logo {
-  font-size: 2rem;
+/* Responsive tốt hơn với padding nhỏ lại ở mobile */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Thêm hiệu ứng ẩn đi khi cuộn */
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0.8; /* Mờ nhẹ nếu thích */
+}
+
+.header__title {
+  font-size: 3rem; /* Larger title */
   font-weight: 800;
-  color: #00bfa6;
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  color: #355c7d; /* Different title color */
+  letter-spacing: 1px;
+  /* Tỏa bóng đen rõ nét xung quanh chữ */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.44);
 }
 
-/* NAV LINKS */
 .header__nav {
   display: flex;
   gap: 2rem;
   align-items: center;
 }
 
-.nav__link {
-  font-weight: 600;
-  padding: 0.8rem 1rem;
-  font-size: 1.05rem;
-  color: #f8f8f8;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+/* Item khi hover vào tiêu đề Header */
+.nav__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
   position: relative;
-  transition: color 0.3s ease;
+}
+
+.nav__list li {
+  position: relative;
+  list-style: none;
+}
+
+.nav__link {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: #f8f8f8;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  position: relative;
+  z-index: 101;
+  height: 100%;
+  font-weight: 600; /* Combined with other .nav__link property */
+  font-size: 1.05rem; /* Combined with other .nav__link property */
+  transition: color 0.3s ease; /* Combined with other .nav__link property */
+  overflow: hidden; /* Combined with other .nav__link property */
 }
 
 .nav__link::after {
@@ -101,12 +133,9 @@ header .logo {
   background: #00bfa6;
   bottom: 0;
   left: 0;
-  transition: width 0.3s ease;
+  transition: width 0.3s;
 }
 
-.nav__link:hover {
-  color: #00bfa6;
-}
 .nav__link:hover::after {
   width: 100%;
 }
@@ -114,7 +143,7 @@ header .logo {
 .btn--login {
   background-color: transparent;
   color: #f1f1f1;
-  padding: 0.5rem 1.5rem;
+  padding: 0.4rem 1.2rem;
   border-radius: 999px;
   border: 2px solid #00bfa6;
   font-weight: 600;
@@ -124,7 +153,6 @@ header .logo {
   overflow: hidden;
   z-index: 1;
   transition: color 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 191, 166, 0.2);
 }
 
 .btn--login::before {
@@ -148,7 +176,7 @@ header .logo {
   border-color: #00bfa6;
 }
 
-/* Dropdown chung */
+/* Dropdown chung (Đã cập nhật theo Gioithieu.css) */
 .dropdown {
   position: absolute;
   top: 100%;
@@ -606,35 +634,50 @@ s .slideshow__slide:first-child {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(
+    0,
+    0,
+    0,
+    0.85
+  ); /* Tối hơn một chút để modal nổi bật và nền dịu hơn */
+  backdrop-filter: blur(7px); /* Blur mạnh hơn một chút, tạo cảm giác sâu */
+  -webkit-backdrop-filter: blur(7px);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-overlay.active {
   display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ==== Modal Box ==== */
 .modal {
-  background: #2d3e4f;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #182531,
+    #0c141b
+  ); /* Gradient màu rất trầm, sâu và dịu hơn */
+  padding: 2rem; /* Giảm nhẹ padding để form gọn gàng hơn */
+  border-radius: 8px; /* Bo tròn sắc nét, hiện đại hơn */
   width: 90%;
-  max-width: 420px;
+  max-width: 380px; /* Giữ nguyên max-width để form tập trung */
   position: relative;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  animation: slideIn 0.3s ease;
-  color: #f1f1f1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75); /* Bóng đổ sâu, rõ ràng hơn */
+  border: 1px solid rgba(255, 255, 255, 0.04); /* Viền mỏng, gần như vô hình để tạo cảm giác "chìm" */
+  color: #e0e0e0; /* Màu chữ sáng dịu */
+  animation: slideIn 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
 @keyframes slideIn {
   from {
-    transform: translateY(-30px);
+    transform: translateY(-50px); /* Bắt đầu từ vị trí cao hơn một chút */
     opacity: 0;
   }
   to {
@@ -645,73 +688,132 @@ s .slideshow__slide:first-child {
 
 .modal__close {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  background: none;
+  top: 0.6rem; /* Căn chỉnh sát góc hơn */
+  right: 0.6rem; /* Căn chỉnh sát góc hơn */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.04
+  ); /* Nền nút đóng rất mờ, hợp với nền modal */
   border: none;
-  color: #f1f1f1;
-  font-size: 1.6rem;
+  color: #d0d0d0; /* Màu chữ nút đóng */
+  font-size: 1.5rem; /* Kích thước icon nhỏ hơn */
   cursor: pointer;
-  transition: color 0.2s ease;
+  border-radius: 50%;
+  width: 30px; /* Kích thước nút nhỏ hơn */
+  height: 30px; /* Kích thước nút nhỏ hơn */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .modal__close:hover {
-  color: #00bfa6;
+  color: #a0b7cf; /* Màu xanh xám dịu mắt khi hover (màu nhấn mới) */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.08
+  ); /* Nền sáng hơn một chút khi hover */
+  transform: rotate(90deg);
 }
 
 /* ==== Tiêu đề ==== */
 .modal__title {
-  margin-bottom: 1.5rem;
-  color: #00bfa6;
-  font-size: 1.5rem;
+  margin-bottom: 1.5rem; /* Khoảng cách vừa phải */
+  color: #a0b7cf; /* Màu xanh xám dịu cho tiêu đề (màu nhấn mới) */
+  font-size: 1.45rem; /* Kích thước tiêu đề tinh tế hơn */
   text-align: center;
-  font-weight: bold;
+  font-weight: 600; /* Độ đậm vừa phải */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* Bóng đổ tinh tế hơn */
 }
 
 /* ==== Form nhập ==== */
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem; /* Khoảng cách giữa các trường nhỏ hơn, gọn gàng */
 }
 
 .auth-form label {
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
-  color: #e0e0e0;
+  font-size: 0.85rem; /* Kích thước nhãn nhỏ hơn, thanh lịch */
+  margin-bottom: 0.15rem; /* Giảm khoảng cách giữa nhãn và input */
+  color: #b5b5b5; /* Màu nhãn dịu mắt hơn */
+  font-weight: 500;
 }
 
 .form__input {
-  padding: 0.6rem 0.9rem;
-  border-radius: 6px;
-  border: none;
-  background: #3a4e63;
-  color: #fff;
-  font-size: 1rem;
+  padding: 0.7rem 0.9rem; /* Padding input được căn chỉnh nhỏ hơn */
+  border-radius: 4px; /* Bo tròn sắc nét hơn */
+  border: 1px solid #30404d; /* Viền input màu trầm hơn */
+  background: #1a2530; /* Nền input tối hơn, tạo chiều sâu */
+  color: #f1f1f1; /* Màu chữ input sáng rõ */
+  font-size: 0.92rem; /* Kích thước chữ input nhỏ hơn */
   outline: none;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .form__input:focus {
-  background: #465f7a;
-  box-shadow: 0 0 0 2px #00bfa6;
+  background: #23313d; /* Nền sáng hơn khi focus */
+  border-color: #a0b7cf; /* Viền xanh xám dịu khi focus (màu nhấn mới) */
+  box-shadow: 0 0 0 3px rgba(160, 183, 207, 0.25); /* Bóng đổ xanh xám dịu khi focus */
+}
+
+/* ==== Buttons ==== */
+.btn--auth,
+.btn--register {
+  background: linear-gradient(
+    135deg,
+    #253545,
+    #16222b
+  ); /* Nền nút màu trầm hơn, công nghệ */
+  color: #ffffff;
+  padding: 0.75rem 1.1rem; /* Padding nút được căn chỉnh nhỏ hơn */
+  border: none;
+  border-radius: 5px; /* Bo tròn nút */
+  font-size: 0.98rem; /* Kích thước chữ nút nhỏ hơn */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Bóng đổ tinh tế hơn */
+  margin-top: 1rem; /* Khoảng cách trên nút giảm nhẹ */
+}
+
+.btn--auth:hover,
+.btn--register:hover {
+  background: linear-gradient(
+    135deg,
+    #32455a,
+    #253545
+  ); /* Nền sáng hơn một chút khi hover */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.55); /* Bóng đổ rõ hơn khi hover */
 }
 
 /* ==== Toggle chuyển form ==== */
 .auth-form__toggle {
   text-align: center;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #ccc;
+  margin-top: 1.2rem; /* Khoảng cách trên cho phần toggle giảm nhẹ */
+  font-size: 0.82rem; /* Kích thước chữ nhỏ hơn, dễ đọc */
+  color: #909090; /* Màu chữ dịu hơn */
 }
 
 .auth-form__toggle a {
-  color: #00bfa6;
-  text-decoration: underline;
+  color: #a0b7cf; /* Màu xanh xám dịu cho link (màu nhấn mới) */
+  text-decoration: none;
+  font-weight: 600; /* Độ đậm vừa phải */
   cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-/* Ẩn ban đầu và hiệu ứng hiện ra */
+.auth-form__toggle a:hover {
+  color: #7f9cb8; /* Xanh xám đậm hơn khi hover */
+  text-decoration: underline;
+}
+
+/* Ẩn ban đầu và hiệu ứng hiện ra (giữ nguyên) */
 .section--fade-in {
   opacity: 0;
   transform: translateY(60px);

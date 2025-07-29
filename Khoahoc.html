@@ -13,16 +13,19 @@
   </head>
   <body>
     <!-- Header -->
-    <!-- Header -->
     <header class="header" id="mainHeader">
       <h1 class="header__title">CodeCrafted</h1>
       <nav class="header__nav">
-        <a href="index.html#" class="nav__link" id="homeLink">Trang chủ</a>
+        <a href="./index.html#" class="nav__link" id="homeLink">Trang chủ</a>
+
         <ul class="nav__list">
           <li class="menu-courses dropdown-wrapper">
             <a href="#" class="nav__link">Khoá học</a>
+
             <ul class="dropdown">
-              <li class="dropdown-item"><a href="#">Lập Trình Web</a></li>
+              <li class="dropdown-item">
+                <a href="./khoahoc_laptrinhweb.html">Lập Trình Web</a>
+              </li>
               <li class="dropdown-item"><a href="#">Phân Tích Dữ Liệu</a></li>
               <li class="dropdown-item"><a href="#">Thiết Kế UI/UX</a></li>
               <li class="dropdown-item"><a href="#">JS Căn Bản</a></li>
@@ -46,9 +49,9 @@
           </li>
         </ul>
         <button id="authBtn" class="btn btn--login">Đăng nhập</button>
+        <div id="authContainer" style="display: inline-block"></div>
       </nav>
     </header>
-
     <!-- Danh sách khóa học -->
     <main class="course-grid">
       <!-- 9 khóa học -->
